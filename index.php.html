@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kelas SI-25 | Sistem Informasi Angkatan 25</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --pastel-blue: #7BD3EA;
+            --light-pastel-blue: #A1E3F9;
+            --white: #ffffff;
+            --dark-blue: #2A4B8C;
+            --accent-blue: #4A7BFF;
+            --pastel-green: #97E7E1;
+            --pastel-purple: #C6A9FF;
+            --pastel-orange: #FFB6B9;
+            --pastel-yellow: #FFEAA7;
+            --shadow: rgba(42, 75, 140, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            background-color: #f8faff;
+            color: var(--dark-blue);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--accent-blue) 100%);
+            box-shadow: 0 4px 20px rgba(42, 75, 140, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            background-color: var(--white);
+            color: var(--accent-blue);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--white);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text span {
+            color: #FFEB3B;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 15px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: #FFEB3B;
+            bottom: 0;
+            left: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 80%;
+            left: 10%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-green) 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -30px;
+            right: -30px;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            bottom: -30px;
+            left: -30px;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            position: relative;
+            z-index: 1;
+            padding: 0 10px;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 100%;
+            margin: 0 auto 25px;
+            color: var(--dark-blue);
+            position: relative;
+            z-index: 1;
+            padding: 0 15px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--accent-blue), var(--pastel-purple));
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(74, 123, 255, 0.3);
+            position: relative;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            min-width: 180px;
+        }
+        
+        .cta-button:hover, .cta-button:active {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(74, 123, 255, 0.4);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 50px 0;
+            width: 100%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark-blue);
+            font-size: 2rem;
+            position: relative;
+            padding: 0 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--pastel-blue), var(--pastel-purple));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 100%;
+            padding: 0 10px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+            background: linear-gradient(to right, var(--accent-blue), var(--pastel-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        
+        .about-stats {
+            flex: 1;
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 0 10px;
+        }
+        
+        .stat-box {
+            background-color: var(--white);
+            padding: 25px 15px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 20px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 18px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-purple));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .stat-box:hover, .stat-box:active {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(42, 75, 140, 0.2);
+        }
+        
+        .stat-box:nth-child(1) .stat-icon {
+            color: var(--pastel-blue);
+        }
+        
+        .stat-box:nth-child(2) .stat-icon {
+            color: var(--pastel-orange);
+        }
+        
+        .stat-box:nth-child(3) .stat-icon {
+            color: var(--pastel-green);
+        }
+        
+        .stat-box:nth-child(4) .stat-icon {
+            color: var(--pastel-purple);
+        }
+        
+        .stat-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            display: block;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-text {
+            font-size: 1rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+        
+        /* Members Section */
+        .members-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            justify-items: center;
+            width: 100%;
+            padding: 0 10px;
+        }
+        
+        .member-card {
+            background-color: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px var(--shadow);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+        }
+        
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 18px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .member-card:hover, .member-card:active {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(42, 75, 140, 0.25);
+        }
+        
+        .member-img {
+            height: 180px;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 60px;
+        }
+        
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .member-name {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--dark-blue);
+        }
+        
+        .member-role {
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            background: linear-gradient(to right, var(--pastel-purple), var(--pastel-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .member-desc {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Gallery Section */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            width: 100%;
+            padding: 0 10px;
+        }
+        
+        .gallery-item {
+            border-radius: 18px;
+            overflow: hidden;
+            height: 220px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .gallery-item:hover, .gallery-item:active {
+            transform: translateY(-8px);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        
+        .gallery-item:hover .gallery-img, .gallery-item:active .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 70%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay, .gallery-item:active .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Angkatan Section */
+        .angkatan-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px var(--shadow);
+            width: 100%;
+        }
+        
+        .angkatan-header {
+            background: linear-gradient(135deg, var(--pastel-blue), var(--accent-blue));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .angkatan-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .angkatan-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .angkatan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 20px;
+        }
+        
+        .angkatan-member {
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+            color: var(--dark-blue);
+            padding: 12px 8px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(123, 211, 234, 0.3);
+            font-size: 13px;
+            word-break: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .angkatan-member:hover, .angkatan-member:active {
+            transform: translateY(-3px) scale(1.03);
+            background: linear-gradient(135deg, var(--pastel-green), var(--pastel-blue));
+            box-shadow: 0 8px 15px rgba(123, 211, 234, 0.4);
+        }
+        
+        /* Schedule Section - PERBAIKAN UTAMA DISINI */
+        .schedule-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px var(--shadow);
+            width: 100%;
+        }
+        
+        .schedule-header {
+            background: linear-gradient(135deg, var(--pastel-blue), var(--accent-blue));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .schedule-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .schedule-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .schedule-table thead {
+            background: linear-gradient(135deg, var(--pastel-green), var(--pastel-blue));
+            color: var(--dark-blue);
+        }
+        
+        .schedule-table th {
+            padding: 15px 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .schedule-table tbody tr {
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+        
+        .schedule-table tbody tr:hover, .schedule-table tbody tr:active {
+            background-color: rgba(123, 211, 234, 0.1);
+        }
+        
+        .schedule-table td {
+            padding: 20px 15px;
+            font-size: 1rem;
+            text-align: center;
+            vertical-align: top;
+        }
+        
+        .schedule-table td:first-child {
+            font-weight: 700;
+            color: var(--dark-blue);
+            width: 100px;
+        }
+        
+        .schedule-table td:last-child {
+            width: auto;
+        }
+        
+        .day-off {
+            background-color: rgba(255, 182, 185, 0.1);
+            color: #FF6B6B;
+            font-weight: 600;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .subject {
+            display: block;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-purple));
+            color: white;
+            border-radius: 10px;
+            margin: 8px 0;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(123, 211, 234, 0.3);
+            font-size: 0.95rem;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .subject.theory {
+            background: linear-gradient(135deg, var(--pastel-green), #7BD3EA);
+        }
+        
+        .subject.practice {
+            background: linear-gradient(135deg, var(--pastel-orange), #FF8E8E);
+        }
+        
+        /* Mata kuliah panjang dipecah menjadi beberapa baris */
+        .long-subject {
+            font-size: 0.9rem;
+            padding: 8px 10px;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px var(--shadow);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            width: 100%;
+        }
+        
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-purple));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 100%;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--accent-blue), var(--pastel-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--white);
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 12px rgba(123, 211, 234, 0.4);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 100%;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--pastel-blue);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8faff;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(74, 123, 255, 0.2);
+            background-color: white;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(to right, var(--accent-blue), var(--pastel-purple));
+            color: white;
+            border: none;
+            padding: 16px 25px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 6px 15px rgba(74, 123, 255, 0.3);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .submit-btn:hover, .submit-btn:active {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 123, 255, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-blue), #1a3368);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            width: 100%;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 100%;
+            padding: 0 10px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--pastel-blue);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover, .footer-links a:active {
+            color: var(--pastel-blue);
+            transform: translateX(3px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        
+        .social-icon:hover, .social-icon:active {
+            background: var(--pastel-blue);
+            color: var(--dark-blue);
+            transform: translateY(-5px) rotate(5deg);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+            padding: 0 15px;
+        }
+        
+        /* Responsive Styles - Tablet */
+        @media (min-width: 768px) {
+            .logo-text {
+                font-size: 24px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+                max-width: 80%;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .about-content {
+                flex-direction: row;
+            }
+            
+            .about-text {
+                min-width: 45%;
+                text-align: left;
+            }
+            
+            .about-text h3 {
+                text-align: left;
+            }
+            
+            .about-stats {
+                min-width: 45%;
+            }
+            
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .angkatan-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .contact-container {
+                flex-direction: row;
+            }
+            
+            .contact-info, .contact-form {
+                min-width: 45%;
+            }
+            
+            .contact-info h3 {
+                text-align: left;
+            }
+            
+            .footer-content {
+                flex-direction: row;
+            }
+            
+            .footer-column {
+                min-width: 30%;
+            }
+            
+            /* Tablet: Jadwal lebih rapi */
+            .schedule-table td {
+                padding: 25px 20px;
+            }
+            
+            .subject {
+                padding: 12px 18px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Responsive Styles - Desktop */
+        @media (min-width: 992px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.6rem;
+            }
+            
+            .members-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .angkatan-grid {
+                grid-template-columns: repeat(6, 1fr);
+                gap: 15px;
+            }
+            
+            .angkatan-member {
+                font-size: 14px;
+                padding: 14px 10px;
+            }
+            
+            .nav-links {
+                gap: 25px;
+            }
+            
+            .nav-links a {
+                font-size: 16px;
+            }
+            
+            /* Desktop: Jadwal lebih rapi */
+            .schedule-table {
+                min-width: 800px;
+                margin: 0 auto;
+            }
+            
+            .schedule-table td:first-child {
+                width: 120px;
+            }
+            
+            .subject {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+            
+            .subject.long-subject {
+                font-size: 0.95rem;
+                padding: 8px 12px;
+            }
+        }
+        
+        /* Mobile Menu */
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--accent-blue) 100%);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 25px rgba(42, 75, 140, 0.2);
+                border-radius: 0 0 20px 20px;
+                z-index: 99;
+                width: 100%;
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                text-align: center;
+                padding: 12px;
+                margin-bottom: 8px;
+                font-size: 16px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .stat-box {
+                padding: 20px 10px;
+            }
+            
+            .stat-icon {
+                font-size: 32px;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .angkatan-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            
+            .angkatan-member {
+                font-size: 12px;
+                padding: 10px 6px;
+            }
+            
+            /* Mobile: Jadwal scrollable dengan tabel tetap rapi */
+            .schedule-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .schedule-table {
+                min-width: 500px;
+            }
+            
+            .schedule-table td, .schedule-table th {
+                padding: 15px 10px;
+                font-size: 0.95rem;
+            }
+            
+            .subject {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+                margin: 6px 0;
+            }
+            
+            .day-off {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Very Small Screens */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-box {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            
+            .angkatan-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-detail {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            /* Very small: Jadwal lebih kompak */
+            .schedule-table {
+                min-width: 350px;
+            }
+            
+            .schedule-table td, .schedule-table th {
+                padding: 12px 8px;
+                font-size: 0.9rem;
+            }
+            
+            .subject {
+                font-size: 0.85rem;
+                padding: 6px 8px;
+            }
+            
+            .day-off {
+                padding: 10px;
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Fix untuk input dan button di iOS */
+        input, textarea, button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0;
+        }
+        
+        /* Touch improvements */
+        button, .cta-button, .member-card, .stat-box, .angkatan-member, .gallery-item, .social-icon {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        /* Improve scrolling on mobile */
+        .schedule-container {
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Fix untuk tabel di mobile */
+        .schedule-table {
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+        
+        /* Membuat sel tabel lebih fleksibel */
+        .schedule-table td {
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="logo-text">SI<span>25</span></div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#members">Pengurus</a></li>
+                    <li><a href="#gallery">Angkatan</a></li>
+                    <li><a href="#schedule">Jadwal</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Sistem Informasi Angkatan 25</h1>
+            <p>Selamat datang di website resmi kelas SI-25 Universitas Ibn Khaldun Bogor. Wadah bagi calon ahli sistem informasi yang kreatif, inovatif, dan siap menghadapi tantangan digital masa depan.</p>
+            <a href="#about" class="cta-button">Jelajahi Kelas Kami</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Kelas SI-25</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Visi & Misi Kelas Kami</h3>
+                    <p>Kelas Sistem Informasi Angkatan 25 Universitas Ibn Khaldun Bogor merupakan komunitas mahasiswa yang berfokus pada pengembangan kompetensi di bidang sistem informasi. Kami berkomitmen untuk menghasilkan lulusan yang kompeten secara teknis dan memahami kebutuhan bisnis digital.</p>
+                    <p>Dengan semangat kolaborasi dan inovasi, kami bertekad untuk menjadi profesional yang tidak hanya menguasai teknologi tetapi juga memiliki nilai-nilai keislaman yang kuat sesuai dengan visi universitas.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span class="stat-number" id="memberCount">0</span>
+                        <span class="stat-text">Total Mahasiswa</span>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <span class="stat-number" id="eventCount">0</span>
+                        <span class="stat-text">Kegiatan Dilakukan</span>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span class="stat-number" id="projectCount">0</span>
+                        <span class="stat-text">Proyek Selesai</span>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <span class="stat-number" id="achievementCount">0</span>
+                        <span class="stat-text">Pencapaian</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members">
+        <div class="container">
+            <h2 class="section-title">Struktur Kepengurusan</h2>
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Muhammad Yasin Fachri</h3>
+                        <p class="member-role">Ketua Angkatan</p>
+                        <p class="member-desc">Memimpin dan mengkoordinasi seluruh kegiatan angkatan. Bertanggung jawab atas kemajuan dan perkembangan kelas SI-25.</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Aimy Khalisa Adya</h3>
+                        <p class="member-role">Komandan Tingkat</p>
+                        <p class="member-desc">Mengatur kedisiplinan dan tata tertib di tingkat angkatan. Membantu ketua dalam pelaksanaan kegiatan.</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name"> Marlan Harjadisastra</h3>
+                        <p class="member-role">Sekretaris</p>
+                        <p class="member-desc">Mengurus administrasi, dokumentasi, dan korespondensi angkatan. Mencatat seluruh kegiatan yang dilakukan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Angkatan Kami</h2>
+            <div class="angkatan-container">
+                <div class="angkatan-header">
+                    <h3>Anggota Kelas SI-25</h3>
+                    <p>30 Mahasiswa Sistem Informasi Angkatan 25 Universitas Ibn Khaldun Bogor</p>
+                </div>
+                <div class="angkatan-grid">
+                    <div class="angkatan-member">Muhammad Arif</div>
+                    <div class="angkatan-member">Ahmad Fauzi</div>
+                    <div class="angkatan-member">Siti Aisyah</div>
+                    <div class="angkatan-member">Budi Santoso</div>
+                    <div class="angkatan-member">Dewi Lestari</div>
+                    <div class="angkatan-member">Rizki Pratama</div>
+                    <div class="angkatan-member">Nurul Hikmah</div>
+                    <div class="angkatan-member">Fajar Setiawan</div>
+                    <div class="angkatan-member">Indah Permata</div>
+                    <div class="angkatan-member">Adi Nugroho</div>
+                    <div class="angkatan-member">Rina Marlina</div>
+                    <div class="angkatan-member">Hendro Wibowo</div>
+                    <div class="angkatan-member">Maya Sari</div>
+                    <div class="angkatan-member">Joko Susilo</div>
+                    <div class="angkatan-member">Anisa Fitri</div>
+                    <div class="angkatan-member">Ari Setiawan</div>
+                    <div class="angkatan-member">Yuni Astuti</div>
+                    <div class="angkatan-member">Eko Prasetyo</div>
+                    <div class="angkatan-member">Dian Permatasari</div>
+                    <div class="angkatan-member">Irfan Maulana</div>
+                    <div class="angkatan-member">Ratna Dewi</div>
+                    <div class="angkatan-member">Agus Salim</div>
+                    <div class="angkatan-member">Sari Novita</div>
+                    <div class="angkatan-member">Fikri Ramadhan</div>
+                    <div class="angkatan-member">Linda Wati</div>
+                    <div class="angkatan-member">Reza Pahlevi</div>
+                    <div class="angkatan-member">Putri Ayu</div>
+                    <div class="angkatan-member">Dodi Firmansyah</div>
+                    <div class="angkatan-member">Wulan Sari</div>
+                    <div class="angkatan-member">Rizky Ananda</div>
+                </div>
+            </div>
+            
+            <h2 class="section-title" style="margin-top: 50px;">Foto Dokumentasi</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="./foto/pict1.jpeg" alt="Foto Angkatan 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Foto Bersama</h3>
+                        <p>Angkatan SI-25 di kampus Universitas Ibn Khaldun Bogor</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./foto/pict2.jpeg" alt="Foto Angkatan 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Kegiatan Kelompok</h3>
+                        <p>Diskusi dan kerja sama dalam mengerjakan tugas</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./foto/pict3.jpeg" alt="Foto Angkatan 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Presentasi Kelas</h3>
+                        <p>Salah satu anggota mempresentasikan hasil proyek</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section - PERBAIKAN UTAMA -->
+    <section id="schedule">
+        <div class="container">
+            <h2 class="section-title">Jadwal Pelajaran</h2>
+            <div class="schedule-container">
+                <div class="schedule-header">
+                    <h3>Jadwal Perkuliahan Semester Ganjil 2025/2026</h3>
+                    <p>Kelas Sistem Informasi Angkatan 25 - Universitas Ibn Khaldun Bogor</p>
+                </div>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Hari</th>
+                            <th>Mata Kuliah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Senin</td>
+                            <td>
+                                <div class="subject">Bahasa Indonesia</div>
+                                <div class="subject">Pancasila</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Selasa</td>
+                            <td>
+                                <div class="subject">Aqidah</div>
+                                <div class="subject long-subject">Dasar Management Organisasi dan Proses Bisnis</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Rabu</td>
+                            <td>
+                                <div class="subject">Matematika Diskrit</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kamis</td>
+                            <td class="day-off">
+                                <i class="fas fa-umbrella-beach"></i> Libur - Tidak Ada Perkuliahan
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jumat</td>
+                            <td>
+                                <div class="subject theory">Algoritma & Pemrograman (Teori)</div>
+                                <div class="subject practice">Algoritma & Pemrograman (Praktik)</div>
+                                <div class="subject long-subject">Sistem Informasi Management</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sabtu</td>
+                            <td>
+                                <div class="subject">Pengantar Basis Data</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Minggu</td>
+                            <td class="day-off">
+                                <i class="fas fa-umbrella-beach"></i> Libur - Tidak Ada Perkuliahan
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Fakultas Teknik & Sains, Jurusan Sistem Informasi, Universitas Ibn Khaldun Bogor</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>si25@uika-bogor.ac.id</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>(0251) 1234-5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Jumat: 08.00 - 16.00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form id="messageForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Alamat Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subjek Pesan" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="Isi Pesan" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SI-25</h3>
+                    <p>Kelas Sistem Informasi Angkatan 25 Universitas Ibn Khaldun Bogor adalah komunitas mahasiswa yang berdedikasi untuk memajukan pendidikan di bidang sistem informasi melalui kolaborasi dan inovasi berbasis nilai-nilai keislaman.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#members">Pengurus</a></li>
+                        <li><a href="#gallery">Angkatan</a></li>
+                        <li><a href="#schedule">Jadwal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Sumber Belajar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Materi Perkuliahan</a></li>
+                        <li><a href="#">Proyek Contoh</a></li>
+                        <li><a href="#">Referensi Buku</a></li>
+                        <li><a href="#">Tutorial Online</a></li>
+                        <li><a href="#">Forum Diskusi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Kelas Sistem Informasi Angkatan 25 - Universitas Ibn Khaldun Bogor. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Close mobile menu if open
+                    if(navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    // Smooth scroll
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animated counter for stats
+        function animateCounter(elementId, targetValue, duration = 1500) {
+            const element = document.getElementById(elementId);
+            const startValue = 0;
+            const increment = targetValue / (duration / 16);
+            let currentValue = startValue;
+            
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if(currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(currentValue);
+            }, 16);
+        }
+        
+        // Initialize counters when section is in view
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    // Animate counters with new values
+                    animateCounter('memberCount', 30);
+                    animateCounter('eventCount', 5);
+                    animateCounter('projectCount', 5);
+                    animateCounter('achievementCount', 6);
+                    
+                    // Stop observing after animation
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe the about section
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            observer.observe(aboutSection);
+        }
+        
+        // Form submission
+        const messageForm = document.getElementById('messageForm');
+        if (messageForm) {
+            messageForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Pesan Anda telah berhasil dikirim! Kami akan menghubungi Anda segera.');
+                this.reset();
+            });
+        }
+        
+        // Add touch interaction for mobile
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Improve touch feedback
+        document.querySelectorAll('.member-card, .stat-box, .angkatan-member, .gallery-item, .cta-button, .submit-btn, .social-icon').forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.style.opacity = '0.9';
+            });
+            
+            element.addEventListener('touchend', function() {
+                this.style.opacity = '1';
+            });
+        });
+        
+        // Load images efficiently
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+        });
+    </script>
+</body>
+</html>
