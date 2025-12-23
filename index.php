@@ -1314,40 +1314,36 @@
             <div class="angkatan-container">
                 <div class="angkatan-header">
                     <h3>Anggota Kelas SI-25</h3>
-                    <p>30 Mahasiswa Sistem Informasi Angkatan 25 Universitas Ibn Khaldun Bogor</p>
+                    <p>26 Mahasiswa Sistem Informasi Angkatan 25 Universitas Ibn Khaldun Bogor</p>
                 </div>
                 <div class="angkatan-grid">
-                    <div class="angkatan-member">Muhammad Arif</div>
-                    <div class="angkatan-member">Ahmad Fauzi</div>
-                    <div class="angkatan-member">Siti Aisyah</div>
-                    <div class="angkatan-member">Budi Santoso</div>
-                    <div class="angkatan-member">Dewi Lestari</div>
-                    <div class="angkatan-member">Rizki Pratama</div>
-                    <div class="angkatan-member">Nurul Hikmah</div>
-                    <div class="angkatan-member">Fajar Setiawan</div>
-                    <div class="angkatan-member">Indah Permata</div>
-                    <div class="angkatan-member">Adi Nugroho</div>
-                    <div class="angkatan-member">Rina Marlina</div>
-                    <div class="angkatan-member">Hendro Wibowo</div>
-                    <div class="angkatan-member">Maya Sari</div>
-                    <div class="angkatan-member">Joko Susilo</div>
-                    <div class="angkatan-member">Anisa Fitri</div>
-                    <div class="angkatan-member">Ari Setiawan</div>
-                    <div class="angkatan-member">Yuni Astuti</div>
-                    <div class="angkatan-member">Eko Prasetyo</div>
-                    <div class="angkatan-member">Dian Permatasari</div>
-                    <div class="angkatan-member">Irfan Maulana</div>
-                    <div class="angkatan-member">Ratna Dewi</div>
-                    <div class="angkatan-member">Agus Salim</div>
-                    <div class="angkatan-member">Sari Novita</div>
-                    <div class="angkatan-member">Fikri Ramadhan</div>
-                    <div class="angkatan-member">Linda Wati</div>
-                    <div class="angkatan-member">Reza Pahlevi</div>
-                    <div class="angkatan-member">Putri Ayu</div>
-                    <div class="angkatan-member">Dodi Firmansyah</div>
-                    <div class="angkatan-member">Wulan Sari</div>
-                    <div class="angkatan-member">Rizky Ananda</div>
-                </div>
+    <div class="angkatan-member">M RANGGA IRWAN</div>
+    <div class="angkatan-member">AIMY KHALISHA ADYA</div>
+    <div class="angkatan-member">ABY UBAIDILLAH TRIESNA YAHYA</div>
+    <div class="angkatan-member">FARSYAH ZALFIN SULAEMAN</div>
+    <div class="angkatan-member">MARSA AMELIA PUTRI</div>
+    <div class="angkatan-member">Muhamad Kevan Dwi Kurnia</div>
+    <div class="angkatan-member">MARLAN HARJADISASTRA</div>
+    <div class="angkatan-member">AHMAD ABQORY MUDABIGHI</div>
+    <div class="angkatan-member">IBNU MUTAQIN</div>
+    <div class="angkatan-member">DENNISYA PUTRI RAMADHIAN</div>
+    <div class="angkatan-member">Bima Mahardika</div>
+    <div class="angkatan-member">Muhammad Fadli Mustofa Kamal</div>
+    <div class="angkatan-member">NABILA SAHWA</div>
+    <div class="angkatan-member">ZHAVIRA OTAVIA RAMADHANI</div>
+    <div class="angkatan-member">MUHAMMAD YASIN FACHRI</div>
+    <div class="angkatan-member">Fikri Akbar Dzaky Ashshiddiq</div>
+    <div class="angkatan-member">Muhamad Pasia Nugraha</div>
+    <div class="angkatan-member">FIKRI ABDILLAH</div>
+    <div class="angkatan-member">ANANDA TRI SAPUTRA</div>
+    <div class="angkatan-member">MUHAMMAD LANTANG ASY&apos;ARI</div>
+    <div class="angkatan-member">LANGGENG TRIHADI PRATAMA SADIKIN</div>
+    <div class="angkatan-member">MALVIANSYAH ZULFIKAR</div>
+    <div class="angkatan-member">SYAUQI AHZA HAWARI</div>
+    <div class="angkatan-member">Salsa Bella</div>
+    <div class="angkatan-member">SITI HAPSOH</div>
+    <div class="angkatan-member">CHINDY DESITA JULIA PUSPA</div>
+</div>
             </div>
             
             <h2 class="section-title" style="margin-top: 50px;">Foto Dokumentasi</h2>
