@@ -1,3 +1,7 @@
+<?php
+echo "Tes";
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
